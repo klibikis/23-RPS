@@ -28,32 +28,31 @@ const Highscores = () => {
     const lostStatement = 'You lost'
     const queryClient = useQueryClient()
 
-const getScore = () => {
-    return axios.get<Scores[]>(`http://localhost:3006/scores/${sortParam}`)
-    .then(res => {
-        console.log(sortParam)
-        return res.data
-})}
-const {data: scores, error, status}: ScoresProps = useQuery({
-    queryKey: ['score'],
-    queryFn: getScore
-})
-if (status === "loading"){
-    return <h1>Loading...</h1>
-} 
-if (!scores){
-    return <h1>{JSON.stringify(error)}</h1>
-} 
+    const getScore = () => {
+        return axios.get<Scores[]>(`http://localhost:3006/scores/${sortParam}`)
+        .then(res => {
+            return res.data
+    })}
+    const {data: scores, error, status}: ScoresProps = useQuery({
+        queryKey: [sortParam],
+        queryFn: getScore
+    })
+    if (status === "loading"){
+        return <h1>{t('play.loading')}</h1>
+    } 
+    if (!scores){
+        return <h1>{JSON.stringify(error)}</h1>
+    } 
 
 const totalWinCount = scores.filter(object => object.gameEndState === winStatement).length
-const totalLostCount = scores.filter(object => object.gameEndState === lostStatement).length
+const totalLostCount = scores.length-totalWinCount;
 
 
     return (
         <>
             <div className="background">
-                    <div className="overlay">
-                    </div>
+                <div className="overlay">
+                </div>
             </div>
             <div className="appContainer">
                 <Navbar/>
@@ -68,7 +67,6 @@ const totalLostCount = scores.filter(object => object.gameEndState === lostState
                                         }else{
                                             setSortParam('statusDesc')
                                         }
-                                        queryClient.invalidateQueries(["score"])
                                     }}>
                                     {t('scores.status')}
                                 </td>
@@ -79,7 +77,6 @@ const totalLostCount = scores.filter(object => object.gameEndState === lostState
                                         }else{
                                             setSortParam('playerPointsDesc')
                                         }
-                                        queryClient.invalidateQueries(["score"])
                                     }}>
                                     {t('scores.yourScore')}
                                 </td>
@@ -90,7 +87,6 @@ const totalLostCount = scores.filter(object => object.gameEndState === lostState
                                         }else{
                                             setSortParam('opponentPointsDesc')
                                         }
-                                        queryClient.invalidateQueries(["score"])
                                     }}>
                                     {t('scores.opponentScore')}
                                 </td>
@@ -101,7 +97,6 @@ const totalLostCount = scores.filter(object => object.gameEndState === lostState
                                         }else{
                                             setSortParam('dateDesc')
                                         }
-                                        queryClient.invalidateQueries(["score"])
                                     }}>
                                     {t('scores.date')}
                                 </td>
@@ -113,7 +108,7 @@ const totalLostCount = scores.filter(object => object.gameEndState === lostState
                                 <tr className={style.scoreRow}
                                     key = {score.id}
                                 >
-                                    <td>{score.gameEndState}</td>
+                                    <td>{t(score.gameEndState)}</td>
                                     <td>{score.playerPoints}</td>
                                     <td>{score.opponentPoints}</td>
                                     <td>{score.date}</td>

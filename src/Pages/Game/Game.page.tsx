@@ -25,7 +25,7 @@ const Game = () => {
     const [weapon, setWeapon] = useState("default");
     const [computerShuffleWeapon, setComputerShuffleWeapon] = useState("default");
     const [computerWeapon, setComputerWeapon] = useState("default");
-    const [gameResult, setGameResult] = useState("Game status");
+    const [gameResult, setGameResult] = useState("status");
     const [isShuffling, setIsShuffling] = useState(false);
     const [isGameEnd, setIsGameEnd] = useState(false);
     const [playerPoints, setPlayerPoints] = useState(0);
@@ -39,7 +39,7 @@ const Game = () => {
     const weaponArray: string[] = ['rock', 'paper', 'scissors']
     const winStatement = 'You won'
     const lostStatement = 'You lost'
-    const drawStatement = 'Draw'
+    const drawStatement = 'draw'
 
     const getScores = () => {
         return axios
@@ -80,12 +80,12 @@ const getDate = () => {
     useEffect(() => {
         if(playerPoints === 5){
             setIsGameEnd(true);
-            setCompletedStatus("Won");
+            setCompletedStatus(winStatement);
             setTotalWinCount(totalWinCount+1);
             postResult();
         }else if(opponentPoints === 5){
             setIsGameEnd(true);
-            setCompletedStatus("Lost");
+            setCompletedStatus(lostStatement);
             setTotalLostCount(totalLostCount+1);
             postResult();
         }
@@ -124,7 +124,7 @@ const getDate = () => {
         }else if(weapon === 'scissors' && computerWeapon === 'rock'){
             setGameResult(lostStatement)
         }else{
-            setGameResult('Something went wrong')
+            setGameResult('wrong')
         }
     }
 
@@ -153,7 +153,7 @@ const getDate = () => {
 
     const handleGameEndClick = () => {
         setIsGameEnd(false);
-        setGameResult('Game status');
+        setGameResult('status');
         setPlayerPoints(0);
         setOpponentPoints(0);
         setWeapon('default');
@@ -165,7 +165,7 @@ const getDate = () => {
         queryFn: getScores,
     })
     if (status === "loading"){
-        return <h1>Loading...</h1>
+        return <h1>{t('play.loading')}</h1>
     } 
     if (!data){
         return <h1>{JSON.stringify(error)}</h1>
@@ -181,7 +181,7 @@ const getDate = () => {
                 <Navbar/>
                 <div className={style.gameContainer}>
                     <div className={style.playerContainer}>
-                        {isGameEnd ? <h1>YOU {completedStatus}</h1> : <h1>{t('play.weapon')}:</h1>}
+                        {isGameEnd ? <h1>{t(completedStatus)}</h1> : <h1>{t('play.weapon')}:</h1>}
                         <div className={style.choicesContainer}>
                             <div 
                                 className='weapon rock'
@@ -218,7 +218,7 @@ const getDate = () => {
                         <div className={`chosenWeapon ${weapon}`}></div>
                     </div>
                     <div className={`${style.playerContainer} ${style.computerContainerGap}`}>
-                        {isGameEnd ? <h1>YOU {completedStatus}</h1> : <h1>{t('play.opponentWeapon')}:</h1>}
+                        {isGameEnd ? <h1>{t(completedStatus)}</h1> : <h1>{t('play.opponentWeapon')}:</h1>}
                         <div className={`chosenWeapon ${isShuffling ? computerShuffleWeapon : computerWeapon}`}></div>
                         {isGameEnd ? 
                             <button 
@@ -229,7 +229,7 @@ const getDate = () => {
                             >
                                 {t('play.again')}
                             </button> : 
-                            <h1>{isShuffling ? <Trans i18nKey="play.shuffling" /> : gameResult}</h1>
+                            <h1>{isShuffling ? <Trans i18nKey="play.shuffling" /> : t(gameResult)}</h1>
                         }
                     </div>
                 </div>

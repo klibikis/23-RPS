@@ -44,7 +44,8 @@ i18n
                         status: 'Current points: | Player: {{playerPoints}}/5 | Opponent: {{opponentPoints}}/5',
                         wins: 'Total Wins: {{totalWinCount}} | Total Losses: {{totalLostCount}}',
                         again: 'Try again?',
-                        shuffling: 'Shuffling'
+                        shuffling: 'Shuffling',
+                        loading: 'Loading...'
                     },
                     scores: {
                         status: 'Game status',
@@ -52,6 +53,11 @@ i18n
                         opponentScore: 'Opponent score',
                         date: 'Date'
                     },
+                    'You won': 'You won',
+                    'You lost': 'You lost',
+                    draw: 'Draw',
+                    wrong: 'Something went wrong',
+                    status: 'Game status'
                 },
             },
             lv: {
@@ -81,7 +87,8 @@ i18n
                             status: 'Punkti: | Spēlētājs: {{playerPoints}}/5 | Pretinieks: {{opponentPoints}}/5',
                             wins: 'Uzvaras kopā: {{totalWinCount}} | Zaudējumi kopā: {{totalLostCount}}',
                             again: 'Mēģināt vēlreiz?',
-                            shuffling: 'Izvēlās'
+                            shuffling: 'Izvēlās',
+                            loading: 'Ielādē...'
                     },
                     scores: {
                         status: 'Spēles statuss',
@@ -89,6 +96,11 @@ i18n
                         opponentScore: 'Pretinieka punkti',
                         date: 'Datums'
                     },
+                    'You won': 'Tu vinnēji',
+                    'You lost': 'Tu zaudēji',
+                    draw: 'Neizšķirts',
+                    wrong: 'Kaut kas nogāja greizi',
+                    status: 'Spēles statuss'
                 },
             },
         },
