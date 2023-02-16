@@ -60,7 +60,7 @@ const totalLostCount = scores.length-totalWinCount;
                     <table>
                         <thead className={style.scoreRow}>
                             <tr>
-                                <td className={style.padding}
+                                <td className={`${style.padding} ${style.tableHeader}`}
                                     onClick = {() => {
                                         if(sortParam === 'statusDesc'){
                                             setSortParam('statusAsc')
@@ -70,7 +70,7 @@ const totalLostCount = scores.length-totalWinCount;
                                     }}>
                                     {t('scores.status')}
                                 </td>
-                                <td
+                                <td className={style.tableHeader}
                                     onClick = {() => {
                                         if(sortParam === 'playerPointsDesc'){
                                             setSortParam('playerPointsAsc')
@@ -80,7 +80,7 @@ const totalLostCount = scores.length-totalWinCount;
                                     }}>
                                     {t('scores.yourScore')}
                                 </td>
-                                <td
+                                <td className={style.tableHeader}
                                     onClick = {() => {
                                         if(sortParam === 'opponentPointsDesc'){
                                             setSortParam('opponentPointsAsc')
@@ -90,7 +90,7 @@ const totalLostCount = scores.length-totalWinCount;
                                     }}>
                                     {t('scores.opponentScore')}
                                 </td>
-                                <td
+                                <td className={style.tableHeader}
                                     onClick = {() => {
                                         if(sortParam === 'dateDesc'){
                                             setSortParam('dateAsc')

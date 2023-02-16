@@ -22,3 +22,11 @@
     padding: 30px;
     font-size: 30px;
 }
+.tableHeader{
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    user-select: none;
+    &:hover{
+        transform: scale(1.2)
+    }
+}
