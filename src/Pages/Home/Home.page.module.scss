@@ -1,0 +1,36 @@
+
+.tab{
+    text-indent:40px
+}
+.itemsContainer{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 30px;
+}
+.aboutItem{
+    height: 25vh;
+    aspect-ratio: 1/1;
+    background-color: rgba(0, 0, 0, 0.577);
+    box-shadow: 0 0 20px rgba(206, 0, 252, 0.613);
+    text-shadow: 0 0 10px rgb(206, 0, 252);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    &:hover{
+        transform: scale(1.2);
+        box-shadow: 0 0 70px rgba(206, 0, 252, 0.613);
+        text-shadow: 0 0 50px rgb(206, 0, 252);
+        transform: rotate(360deg);
+    }
+}
+.aboutContainer{
+    padding-top: 6%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

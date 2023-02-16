@@ -1,0 +1,61 @@
+.gameContainer{
+    display: flex;
+    padding: 1% 20px 0 20px;
+    min-height: 70%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-bottom: 3%;
+
+}
+.playerContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.678);
+    width: 45%;
+    min-height: 60vh;
+    padding-top: 4%;
+    padding-bottom: 2%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgb(1, 1, 1);
+    justify-content: flex-start;
+    align-items: center;
+}
+.choicesContainer{
+    display: flex;
+    gap: 20px;
+    justify-content:center;
+    padding: 5% 20px;
+}
+.computerContainerGap{
+    gap: 10%;
+}
+.resultsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    font-size: 35px;
+}
+.button{
+    padding: 10px 20px;
+    padding-top: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.554);
+    box-shadow: 0 0 20px rgba(206, 0, 252, 0.613);
+    text-shadow: 0 0 20px rgb(206, 0, 252);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        transform: scale(1.2);
+        box-shadow: 0 0 40px rgba(206, 0, 252, 0.613);
+    }
+}

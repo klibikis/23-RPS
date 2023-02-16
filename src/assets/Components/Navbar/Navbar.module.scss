@@ -1,0 +1,17 @@
+.navContainer{
+    width: 80%;
+    height: 10vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px;
+}
+.navItem{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 20px rgb(206, 0, 252);
+    transition: transform 0.2s ease-in;
+    &:hover{
+        transform: scale(1.3)
+    }
+}

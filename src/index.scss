@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+h1{
+  text-shadow: 0 0 20px rgb(206, 0, 252);
+}
+.aboutText{
+  font-size: 36px;
+  text-align: justify;
+  text-shadow: 0 0 10px rgb(206, 0, 252);
+}
+.mainNav{
+  display: flex;
+  width: 70%;
+  gap: 70px;
+}
+.langNav{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 25px;
+  width: 20%;
+}
+.langDiv{
+  height: 50%;
+  aspect-ratio: 4/3;
+  border-radius: 3px;
+  display: flex;
+}
+.flag{
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover{
+    transform: scale(1.1)
+  }
+}
+body{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 55px;
+  color: white;
+}
+.background{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/Images/background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.403);
+  top: 0;
+  left: 0;
+}
+.appContainer{
+  width: 70%;
+  min-height: 90vh;
+  background-color: rgba(5, 5, 5, 0.39);
+  margin: 5vh auto;
+  border-radius: 10px;
+  padding: 1% 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.789);
+  display: flex;
+  flex-direction: column;
+}
+td{
+  padding: 5px;
+}
+thead{
+  font-size: 30px;
+}
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 45px;
+  }
+  .aboutText{
+    font-size: 30px;
+  }
+  .mainNav{
+    gap: 35px;
+  }
+  .appContainer{
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 35px;
+  }
+  .aboutText{
+    font-size: 25px;
+  }
+  .mainNav{
+    gap: 25px;
+  }
+  .appContainer{
+    width: 98%;
+  }
+}
