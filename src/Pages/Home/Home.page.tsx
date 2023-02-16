@@ -1,20 +1,12 @@
 import { useState } from "react";
-import { useTranslation, Trans} from 'react-i18next';
+import { useTranslation} from 'react-i18next';
 import Navbar from "../../assets/Components/Navbar/Navbar";
 import style from './Home.page.module.scss'
 
 const Home = () => {
     
     const { t, i18n } = useTranslation();
-
-    const aboutGame = <Trans i18nKey="home.about.description" />
-    const aboutRules =  <Trans i18nKey="home.rules.description" />
-    const aboutWhy =  <Trans i18nKey="home.why.description" />
-
-    
-    const [activeAboutText, setActiveAboutText] = useState(aboutGame); 
-
-    
+    const [activeAboutText, setActiveAboutText] = useState('aboutGame'); 
 
     return (
         <>
@@ -28,25 +20,25 @@ const Home = () => {
                 <div className={style.itemsContainer}>
                     <div className={style.aboutItem} 
                         onClick = {() => {
-                            setActiveAboutText(aboutGame)
+                            setActiveAboutText('aboutGame')
                         }}>
-                            {t('home.about.title')}
+                            {t('home.about')}
                     </div>
                     <div className={style.aboutItem} 
                         onClick = {() => {
-                            setActiveAboutText(aboutRules)
+                            setActiveAboutText('aboutRules')
                         }}>
-                            {t('home.rules.title')}
+                            {t('home.rules')}
                     </div>
                     <div className={style.aboutItem} 
                         onClick = {() => {
-                            setActiveAboutText(aboutWhy)
+                            setActiveAboutText('aboutWhy')
                         }}>
-                            {t('home.why.title')}
+                            {t('home.why')}
                     </div>
                 </div>
                     <p className={`aboutText ${style.tab}`}>
-                        {activeAboutText} 
+                    {t(activeAboutText)}
                     </p>
                 </div>
             </div>

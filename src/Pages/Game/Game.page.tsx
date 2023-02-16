@@ -19,8 +19,6 @@ type ScoresProps = {
     status: "error" | "success" | "loading"
 }
 
-
-
 const Game = () => {
     const [weapon, setWeapon] = useState("default");
     const [computerShuffleWeapon, setComputerShuffleWeapon] = useState("default");
@@ -33,9 +31,7 @@ const Game = () => {
     const [totalWinCount, setTotalWinCount] = useState(0);
     const [totalLostCount, setTotalLostCount] = useState(0);
     const [completedStatus, setCompletedStatus] = useState('');
-    const { t, i18n } = useTranslation();
-    
-
+    const { t } = useTranslation();
     const weaponArray: string[] = ['rock', 'paper', 'scissors']
     const winStatement = 'You won'
     const lostStatement = 'You lost'
@@ -53,13 +49,12 @@ const Game = () => {
         })
     }
 
-const getDate = () => {
-    let today = new Date().toLocaleDateString()
-    let date = new Date();
-    let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-    return (time + " " + today)
-}
-
+    const getDate = () => {
+        let today = new Date().toLocaleDateString()
+        let date = new Date();
+        let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        return (time + " " + today)
+    }
 
     useEffect(() => {
         if(weapon !== 'default' || computerWeapon !== 'default'){

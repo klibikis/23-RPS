@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useTranslation, Trans} from 'react-i18next';
+import { useTranslation} from 'react-i18next';
 import axios from "axios";
 import Navbar from "../../assets/Components/Navbar/Navbar";
 import style from './Highscores.page.module.scss'
@@ -21,18 +21,16 @@ type ScoresProps = {
 
 const Highscores = () => {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [sortParam, setSortParam] = useState('dateAsc');
-
     const winStatement = 'You won'
-    const lostStatement = 'You lost'
-    const queryClient = useQueryClient()
 
     const getScore = () => {
         return axios.get<Scores[]>(`http://localhost:3006/scores/${sortParam}`)
         .then(res => {
             return res.data
     })}
+    
     const {data: scores, error, status}: ScoresProps = useQuery({
         queryKey: [sortParam],
         queryFn: getScore
@@ -44,9 +42,8 @@ const Highscores = () => {
         return <h1>{JSON.stringify(error)}</h1>
     } 
 
-const totalWinCount = scores.filter(object => object.gameEndState === winStatement).length
-const totalLostCount = scores.length-totalWinCount;
-
+    const totalWinCount = scores.filter(object => object.gameEndState === winStatement).length
+    const totalLostCount = scores.length-totalWinCount;
 
     return (
         <>
